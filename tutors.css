@@ -1,0 +1,33 @@
+/* Tutors page */
+.tutor-card {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    margin: 8px 1%;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.register-tutor form {
+    margin-top: 10px;
+}
+
+.register-tutor input[type="text"],
+.register-tutor input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+
+.register-tutor input[type="submit"] {
+    background-color: #7a0019;
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.register-tutor input[type="submit"]:hover {
+    background-color: #5c0012;
+}

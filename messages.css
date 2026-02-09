@@ -1,0 +1,23 @@
+/* Messages page */
+.inbox ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.inbox li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px 0;
+}
+
+.chat-window {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    background-color: #fafafa;
+}
+
+.chat-message {
+    margin: 8px 0;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+}
