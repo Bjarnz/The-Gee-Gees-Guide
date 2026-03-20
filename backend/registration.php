@@ -58,5 +58,7 @@ $mysqli->close();
    
 <p><?php echo $message; ?></p>
 
+<p>Already have an account? <a href="login.html">Login here</a></p>
+    
 </body>
 </html>
