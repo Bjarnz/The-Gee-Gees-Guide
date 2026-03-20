@@ -56,6 +56,8 @@ $mysqli->close();
     <input type="submit" value="Register">
 </form>
 
+<p>Don't have an account? <a href="register.php">Register here</a></p>
+    
 <p><?php echo $message; ?></p>
 
 </body>
