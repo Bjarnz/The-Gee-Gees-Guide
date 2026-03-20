@@ -8,7 +8,7 @@ if (isset($_REQUEST['error'])){
 }
 
 ?>
-<form action="registration_handler.php" method="POST">
+<form action="backend/registration_handler.php" method="POST">
     <table>
         <tr>
             <th>Username*:</th> <td><input type="text" name="username"></td>
