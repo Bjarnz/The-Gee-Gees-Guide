@@ -1,30 +1,62 @@
 <?php
-if (isset($_REQUEST['error'])){
-    $error = $_REQUEST['error'];
+session_start();
+include 'backend/db_connect.php';
 
-    if ($error == 'exists'){
-        echo 'User already exists!';
+$message = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if user already exists
+    $check = "SELECT * FROM users WHERE username='$username'";
+    $result = $mysqli->query($check);
+
+    if ($result->num_rows > 0) {
+        $message = "Username already exists.";
+    } else {
+        // Insert new user
+        $sql = "INSERT INTO users (username, email, password)
+                VALUES ('$username', '$email', '$password')";
+
+        if ($mysqli->query($sql)) {
+            // Automatically log them in
+            $_SESSION['username'] = $username;
+            $message = "Account created! You are now logged in.";
+        } else {
+            $message = "Error: " . $mysqli->error;
+        }
     }
 }
 
+$mysqli->close();
 ?>
-<form action="backend/registration_handler.php" method="POST">
-    <table>
-        <tr>
-            <th>Username*:</th> <td><input type="text" name="username"></td>
-        </tr>
-        <tr>
-            <th>Password*:</th><td><input type="text" name="password"></td>
-        </tr>
-        <tr>
-            <th>first_name:</th> <td><input type="text" name="fname"></td>
-        </tr>
-        <tr>
-            <th>last_name:</th> <td><input type="text" name="lname"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="register!"></td>
-        </tr>
 
-    </table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - The Gee-Gees Guide</title>
+</head>
+<body>
+
+<h1>Create Account</h1>
+
+<form method="POST">
+    <label>Username:</label><br>
+    <input type="text" name="username" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <input type="submit" value="Register">
 </form>
+
+<p><?php echo $message; ?></p>
+
+</body>
+</html>
