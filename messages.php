@@ -29,7 +29,6 @@ if (!isset($_SESSION['username'])) {
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="backend/tutors.php">Tutors</a></li>
-            <li><a href="reddit.html">Campus Discussions</a></li>
             <li><a href="messages.html">Messages</a></li>
         </ul>
     </nav>
