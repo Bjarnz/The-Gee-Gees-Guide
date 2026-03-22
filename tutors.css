@@ -13,6 +13,8 @@
     margin-top: 10px;
 }
 
+/* Use the same simple input style for search and registration. */
+.tutor-search input[type="text"],
 .register-tutor input[type="text"],
 .register-tutor input[type="email"] {
     width: 100%;
@@ -20,6 +22,8 @@
     border: 1px solid #cccccc;
 }
 
+/* Keep the main buttons using the same site colour as the header/footer. */
+.tutor-search input[type="submit"],
 .register-tutor input[type="submit"] {
     background-color: #7a0019;
     color: #ffffff;
@@ -28,6 +32,42 @@
     cursor: pointer;
 }
 
+.tutor-search input[type="submit"]:hover,
 .register-tutor input[type="submit"]:hover {
     background-color: #5c0012;
+}
+
+.clear-link {
+    display: inline-block;
+    margin-left: 10px;
+    color: #7a0019;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.clear-link:hover {
+    text-decoration: underline;
+}
+
+/* These message boxes are used for search empty states and form feedback. */
+.status-message,
+.error-message,
+.empty-state {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.status-message {
+    background-color: #f3fbf4;
+    border-color: #b8d8bf;
+}
+
+.error-message {
+    background-color: #fff4f4;
+    border-color: #e2b6b6;
+}
+
+.error-message p {
+    margin-top: 0;
 }
