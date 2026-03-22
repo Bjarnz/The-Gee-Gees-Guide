@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location: login.html");
+    header("Location: ../login.html");
     exit();
 }
 // Read the page message and search text from the URL.
