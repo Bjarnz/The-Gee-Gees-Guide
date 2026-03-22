@@ -32,9 +32,9 @@ $form_values = [
     <h1>The Gee-Gees Guide</h1>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="backend/tutors.php">Tutors</a></li>
-            <li><a href="messages.php">Messages</a></li>
+            <li><a href="../index.html">Home</a></li> <!-- Use ../ to go up one folder -->
+            <li><a href="tutors.php">Tutors</a></li>   <!-- Link to itself -->
+            <li><a href="../messages.php">Messages</a></li> <!-- Assuming messages.php is also in backend/ -->
         </ul>
     </nav>
 </header>
