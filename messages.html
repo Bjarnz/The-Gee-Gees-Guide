@@ -36,26 +36,22 @@
     <p>Communicate with tutors and peers. For now, this page shows a static mockup of the messaging system.</p>
 </section>
 
-<section class="inbox">
+<section class="chat-window">
     <h2>Inbox</h2>
-    <ul>
-        <li><strong>Alex Johnson:</strong> “Hi! Are you available to review ADM 2350 this week?”</li>
-        <li><strong>Jamie Lee:</strong> “Can you help me with CSC 148 assignment 2?”</li>
-        <li><strong>Sam Patel:</strong> “Reminder: Our study session tomorrow at 5pm!”</li>
-    </ul>
+    <div id="messageList"></div>
 </section>
 
 <section class="chat-window">
-    <h2>Sample Conversation with Alex Johnson</h2>
-    <div class="chat-message">
-        <strong>Alex:</strong> Hi! What course do you need help with?
-    </div>
-    <div class="chat-message">
-        <strong>You:</strong> ADM 2350 🙂
-    </div>
-    <div class="chat-message">
-        <strong>Alex:</strong> Perfect, when are you free?
-    </div>
+    <h2>Send a Message</h2>
+
+    <form id="messageForm">
+        <input type="number" name="sender" placeholder="Sender ID" required><br><br>
+        <input type="number" name="receiver" placeholder="Receiver ID" required><br><br>
+        <textarea name="message" placeholder="Type your message..." required></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="statusMessage"></p>
 </section>
 
 </main>
@@ -65,6 +61,46 @@
 <footer>
     <p>© 2026 The Gee-Gees Guide | Student Project</p>
 </footer>
+
+<script>
+async function loadMessages() {
+    const response = await fetch("backend/get_messages.php");
+    const data = await response.json();
+
+    const messageList = document.getElementById("messageList");
+    messageList.innerHTML = "";
+
+    data.forEach(msg => {
+        const div = document.createElement("div");
+        div.className = "chat-message";
+        div.innerHTML = `
+            <strong>User ${msg.sender_id}</strong> → User ${msg.receiver_id}<br>
+            ${msg.message_text}<br>
+            <small>${msg.timestamp}</small>
+        `;
+        messageList.appendChild(div);
+    });
+}
+
+document.getElementById("messageForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const response = await fetch("backend/send_message.php", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.text();
+    document.getElementById("statusMessage").innerText = result;
+
+    this.reset();
+    loadMessages();
+});
+
+loadMessages();
+</script>
 
 </body>
 </html>
