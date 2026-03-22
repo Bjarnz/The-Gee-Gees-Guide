@@ -2,28 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - The Gee-Gees Guide</title>
+    <link rel="stylesheet" href="shared-styles.css">
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
 
-<h1>Create Account</h1>
+<header>
+    <h1>The Gee-Gees Guide</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="backend/tutors.php">Tutors</a></li>
+            <li><a href="messages.php">Messages</a></li>
+        </ul>
+    </nav>
+</header>
 
-<form method="POST" action="backend/registration.php">
-    <label>Username:</label><br>
-    <input type="text" name="username" required><br><br>
+<hr>
 
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+<main class="auth-main">
+    <section class="auth-card">
+        <h2>Create Account</h2>
+        <p class="auth-note">Create an account to use the tutor and messaging features.</p>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+        <form class="auth-form" method="POST" action="backend/registration.php">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
 
-    <input type="submit" value="Register">
-</form>
-   
-<p><?php echo $message; ?></p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
 
-<p>Already have an account? <a href="login.html">Login here</a></p>
-    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Register">
+        </form>
+
+        <p class="auth-link">Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+</main>
+
+<hr>
+
+<footer>
+    <p>© 2026 The Gee-Gees Guide | Student Project</p>
+</footer>
 </body>
 </html>

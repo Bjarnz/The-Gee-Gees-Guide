@@ -1,0 +1,54 @@
+/* Shared styles for the login and registration pages */
+.auth-main {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+}
+
+.auth-card {
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+.auth-card h2 {
+    margin-top: 0;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+}
+
+.auth-form input[type="submit"] {
+    background-color: #7a0019;
+    color: #ffffff;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.auth-form input[type="submit"]:hover {
+    background-color: #5c0012;
+}
+
+.auth-link {
+    margin-bottom: 0;
+}
+
+.auth-note {
+    color: #666666;
+}

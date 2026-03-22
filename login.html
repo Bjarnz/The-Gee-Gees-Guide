@@ -2,23 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - The Gee-Gees Guide</title>
+    <link rel="stylesheet" href="shared-styles.css">
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
 
-<h1>Login</h1>
+<header>
+    <h1>The Gee-Gees Guide</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="backend/tutors.php">Tutors</a></li>
+            <li><a href="messages.php">Messages</a></li>
+        </ul>
+    </nav>
+</header>
 
-<form method="POST" action="backend/login.php">
-    <label>Username:</label><br>
-    <input type="text" name="username" required><br><br>
+<hr>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+<main class="auth-main">
+    <section class="auth-card">
+        <h2>Login</h2>
+        <p class="auth-note">Sign in to access tutors and messages.</p>
 
-    <input type="submit" value="Login">
-</form>
+        <form class="auth-form" method="POST" action="backend/login.php">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
 
-<p>Don't have an account? <a href="registration.html">Register here</a></p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
 
+            <input type="submit" value="Login">
+        </form>
+
+        <p class="auth-link">Don't have an account? <a href="registration.html">Register here</a></p>
+    </section>
+</main>
+
+<hr>
+
+<footer>
+    <p>© 2026 The Gee-Gees Guide | Student Project</p>
+</footer>
 </body>
 </html>
