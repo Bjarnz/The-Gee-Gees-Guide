@@ -37,6 +37,7 @@ $form_values = [
             <li><a href="../messages.php">Messages</a></li>
         </ul>
     </nav>
+    <button id="darkModeToggle">Dark Mode</button>
 </header>
 
 <hr>
@@ -123,5 +124,6 @@ if ($search !== '') {
 </footer>
 
 <script src="../tutors.js"></script>
+<script src="../darkmode.js"></script>
 </body>
 </html>
