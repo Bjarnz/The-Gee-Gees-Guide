@@ -28,12 +28,15 @@
         <h2>Login</h2>
         <p class="auth-note">Sign in to access tutors and messages.</p>
 
-        <form class="auth-form" method="POST" action="backend/login.php">
+        <form id="loginForm" class="auth-form" method="POST" action="backend/login.php">
+            
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
+            <input type="text" id="username" name="username"><br><br>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <input type="password" id="password" name="password"><br><br>
+
+            <p id="errorMsg"></p>
 
             <input type="submit" value="Login">
         </form>
@@ -47,5 +50,8 @@
 <footer>
     <p>© 2026 The Gee-Gees Guide | Student Project</p>
 </footer>
+
+<script src="login.js"></script>
+
 </body>
 </html>
