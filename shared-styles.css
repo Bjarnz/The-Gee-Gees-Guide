@@ -82,3 +82,50 @@ footer {
     padding: 12px;
     background-color: #fdf6f7;
 }
+
+/* DARK MODE */
+.dark-mode {
+    background-color: #121212;
+    color: #eeeeee;
+}
+
+.dark-mode header,
+.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode main {
+    background-color: #1c1c1c;
+    border: 1px solid #333333;
+}
+
+.dark-mode article,
+.dark-mode section {
+    background-color: #242424;
+    border: 1px solid #333333;
+}
+
+.dark-mode h2 {
+    border-bottom: 2px solid #555555;
+}
+
+.dark-mode nav a {
+    color: #9ecfff;
+}
+
+.dark-mode nav a:hover {
+    text-decoration: underline;
+}
+
+.dark-mode .intro {
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
+}
+
+.dark-mode input,
+.dark-mode button {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
