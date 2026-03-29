@@ -108,6 +108,6 @@ document.getElementById("messageForm").addEventListener("submit", async function
 
 loadMessages();
 </script>
-
+<script src="darkmode.js"></script>
 </body>
 </html>
