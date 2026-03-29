@@ -51,16 +51,19 @@ $form_values = [
 <section class="tutor-search">
     <h2>Search Tutors</h2>
     <!-- This form reloads the page and sends the search word in the URL. -->
-    <form method="GET" action="tutors.php">
+    <form id="tutor-search-form" method="GET" action="tutors.php">
         <label for="q">Search by name, program, or subject:</label><br>
         <input type="text" id="q" name="q" value="<?php echo htmlspecialchars($search, ENT_QUOTES, 'UTF-8'); ?>"><br><br>
         <input type="submit" value="Search">
         <a class="clear-link" href="tutors.php">Clear</a>
     </form>
+    <p id="search-help" class="helper-text">You can filter the current tutor cards as you type, or use Search to reload the page results.</p>
 </section>
 
 <section class="tutor-profiles">
     <h2>Available Tutors</h2>
+    <p id="tutor-count" class="helper-text">Showing available tutors.</p>
+    <div id="client-empty-state" class="empty-state hidden">No tutor cards match what you typed.</div>
 
 <?php
 // If the user typed a search, show matching tutors. Otherwise show the full list.
@@ -86,23 +89,28 @@ if ($search !== '') {
     <div class="error-message">
         <p>There was a problem saving the tutor. Please try again.</p>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
 
     <!-- This form sends the tutor data to the backend PHP file for saving. -->
-    <form method="POST" action="add_tutor.php">
+    <form id="register-tutor-form" method="POST" action="add_tutor.php" novalidate>
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($form_values['name'], ENT_QUOTES, 'UTF-8'); ?>" required><br><br>
+        <p id="name-feedback" class="field-feedback" aria-live="polite"></p>
 
         <label for="program">Program:</label><br>
         <input type="text" id="program" name="program" value="<?php echo htmlspecialchars($form_values['program'], ENT_QUOTES, 'UTF-8'); ?>" required><br><br>
+        <p id="program-feedback" class="field-feedback" aria-live="polite"></p>
 
         <label for="subjects">Subjects:</label><br>
         <input type="text" id="subjects" name="subjects" value="<?php echo htmlspecialchars($form_values['subjects'], ENT_QUOTES, 'UTF-8'); ?>" required><br><br>
+        <p id="subjects-feedback" class="field-feedback" aria-live="polite"></p>
+        <p id="subjects-count" class="helper-text">0 characters typed.</p>
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($form_values['email'], ENT_QUOTES, 'UTF-8'); ?>" required><br><br>
+        <p id="email-feedback" class="field-feedback" aria-live="polite"></p>
 
-        <input type="submit" value="Register">
+        <input type="submit" id="register-submit" value="Register">
     </form>
 </section>
 
@@ -114,5 +122,6 @@ if ($search !== '') {
     <p>© 2026 The Gee-Gees Guide | Student Project</p>
 </footer>
 
+<script src="../tutors.js"></script>
 </body>
 </html>

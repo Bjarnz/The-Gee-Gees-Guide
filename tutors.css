@@ -71,3 +71,40 @@
 .error-message p {
     margin-top: 0;
 }
+
+.helper-text {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+.field-feedback {
+    margin-top: -12px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    color: #9a1a1a;
+    min-height: 18px;
+}
+
+.input-error {
+    border-color: #c24a4a;
+}
+
+.hidden {
+    display: none;
+}
+
+.register-tutor input[type="submit"]:disabled {
+    background-color: #9d7d85;
+    cursor: not-allowed;
+}
+
+.tutor-search form {
+    margin-bottom: 10px;
+}
+
+.tutor-search .clear-link,
+.tutor-search input[type="submit"] {
+    vertical-align: middle;
+}
