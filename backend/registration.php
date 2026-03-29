@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'backend/db_connect.php';
+// This file is also inside backend/, so it should include the DB file from the same folder.
+include 'db_connect.php';
 
 $message = "";
 
@@ -21,14 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 VALUES ('$username', '$email', '$password')";
 
         if ($mysqli->query($sql)) {
-            // Automatically log them in
+            // Automatically log them in after creating the account.
             $_SESSION['username'] = $username;
-            $message = "Account created! You are now logged in.";
+            header("Location: ../index.html");
+            exit();
         } else {
             $message = "Error: " . $mysqli->error;
         }
     }
+} else {
+    // Direct visits to the PHP handler should go back to the registration form.
+    header("Location: ../registration.html");
+    exit();
 }
 
 $mysqli->close();
+
+echo $message;
 ?>
