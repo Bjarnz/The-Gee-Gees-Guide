@@ -32,6 +32,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="messages.html">Messages</a></li>
         </ul>
     </nav>
+    <button id="darkModeToggle">Dark Mode</button>
 </header>
 
 <hr>
