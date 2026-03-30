@@ -26,7 +26,12 @@ if ($stmt) {
     while ($stmt->fetch()) {
         $has_results = true;
         // Print only the tutors that match the search word.
-        echo '<article class="tutor-card">';
+        echo '<article class="tutor-card"'
+            . ' data-name="' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-program="' . htmlspecialchars($program, ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-subjects="' . htmlspecialchars($subjects, ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-email="' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-tutor-id="' . (int) $tutor_id . '">';
         echo '<h3>' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</h3>';
         echo '<p>Program: ' . htmlspecialchars($program, ENT_QUOTES, 'UTF-8') . '</p>';
         echo '<p>Subjects: ' . htmlspecialchars($subjects, ENT_QUOTES, 'UTF-8') . '</p>';

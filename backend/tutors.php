@@ -54,16 +54,25 @@ $form_values = [
     <!-- This form reloads the page and sends the search word in the URL. -->
     <form id="tutor-search-form" method="GET" action="tutors.php">
         <label for="q">Search by name, program, or subject:</label><br>
-        <input type="text" id="q" name="q" value="<?php echo htmlspecialchars($search, ENT_QUOTES, 'UTF-8'); ?>"><br><br>
+        <input type="text" id="q" name="q" value="<?php echo htmlspecialchars($search, ENT_QUOTES, 'UTF-8'); ?>"><br>
+        <p id="search-help" class="helper-text search-note">Type here to narrow the tutors shown below while you browse.</p>
         <input type="submit" value="Search">
         <a class="clear-link" href="tutors.php">Clear</a>
     </form>
-    <p id="search-help" class="helper-text">You can filter the current tutor cards as you type, or use Search to reload the page results.</p>
 </section>
 
 <section class="tutor-profiles">
     <h2>Available Tutors</h2>
-    <p id="tutor-count" class="helper-text">Showing available tutors.</p>
+    <div class="results-bar">
+        <p id="tutor-count" class="helper-text">Showing available tutors.</p>
+        <div class="filter-row">
+            <label for="program-filter">Filter by:</label>
+            <select id="program-filter">
+                <option value="all">All tutors</option>
+                <option value="latest">Last added</option>
+            </select>
+        </div>
+    </div>
     <div id="client-empty-state" class="empty-state hidden">No tutor cards match what you typed.</div>
 
 <?php
@@ -112,6 +121,7 @@ if ($search !== '') {
         <p id="email-feedback" class="field-feedback" aria-live="polite"></p>
 
         <input type="submit" id="register-submit" value="Register">
+        <p class="helper-text">After adding a tutor, reload the page to update the filter options.</p>
     </form>
 </section>
 

@@ -8,7 +8,12 @@ $result = $mysqli->query($sql);
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Print each tutor as one card so tutors.php can drop it into the page.
-        echo '<article class="tutor-card">';
+        echo '<article class="tutor-card"'
+            . ' data-name="' . htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-program="' . htmlspecialchars($row['program'], ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-subjects="' . htmlspecialchars($row['subjects'], ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-email="' . htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') . '"'
+            . ' data-tutor-id="' . (int) $row['tutor_id'] . '">';
         echo '<h3>' . htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') . '</h3>';
         echo '<p>Program: ' . htmlspecialchars($row['program'], ENT_QUOTES, 'UTF-8') . '</p>';
         echo '<p>Subjects: ' . htmlspecialchars($row['subjects'], ENT_QUOTES, 'UTF-8') . '</p>';
